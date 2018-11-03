@@ -1,0 +1,27 @@
+
+#header {
+  font-size: 5vw;
+  /* font-family: 'Bungee Hairline', cursive;*/
+  /*font-family: 'Bungee', cursive;*/
+   font-family: 'Bungee Shade', cursive;
+  /*font-family: 'Bungee Outline', cursive;*/
+  /*font-family: 'Bungee Inline', cursive; */
+}
+
+#chicken {
+  font-size: 1vw;
+  /* font-family: 'Bungee Hairline', cursive; */
+  font-family: 'Bungee', cursive;
+   /* font-family: 'Bungee Shade', cursive; */
+  /*font-family: 'Bungee Outline', cursive;*/
+  /*font-family: 'Bungee Inline', cursive; */
+}
+
+.btsorange {
+  background-color: #ff420f;
+}
+
+.btswhite {
+  background-color: white;
+  color: #ff420f
+}
