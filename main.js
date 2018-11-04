@@ -4,14 +4,14 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
     .then(function(response){
       console.log("response.data:::" , response.data)
 
-      let eventsArr = []
+      const eventsArr = response.data.events
 
-      function getEvents(){
-        eventsArr = response.data.events
-        return eventsArr
-      }
-      getEvents()
-      //console.log("getEvents()" , getEvents())
+      // function getEvents(){
+      //   eventsArr = response.data.events
+      //   return eventsArr
+      // }
+      // getEvents()
+    console.log("eventsArr!!!!" , eventsArr)
 
 
       let headlinersArr = []
@@ -34,7 +34,30 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
       //getDates()
       console.log("getDates()!!!" , getDates())
 
-      //let venueArr = []
+      let venuesArr = []
+      function getVenues(){
+        for(let ii = 0; ii < eventsArr.length; ii++){
+          venuesArr.push(eventsArr[ii].name.text.substring((eventsArr[ii].name.text.lastIndexOf("*")+5), eventsArr[ii].name.text.lastIndexOf("(")-1))
+        }
+        return venuesArr
+      }
+      //getVenues()
+      console.log("getVenues()>>>>" , getVenues())
+
+      let totalRidersArr = []
+      let eventTotal = 0
+      let ridersByLocation = {}
+      function getRidersTotal(){
+        for(let ii = 0; ii < eventsArr.length; ii++){
+          let ticketClasses = eventsArr[ii].ticket_classes
+          ridersByLocation[ticketClasses[ii].name.substring(5, 10)] = ticketClasses[ii].quantity_sold
+          eventTotal += ticketClasses[ii].quantity_sold
+        }
+        console.log("ridersByLocation*****" , ridersByLocation)
+        console.log("eventTotal~~~~: " , eventTotal)
+        totalRidersArr.push(eventTotal) //need to run another loop to push each event's eventTotal to this array <<<< :)
+      }
+      getRidersTotal()
 
 
     })
