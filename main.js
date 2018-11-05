@@ -1,19 +1,15 @@
 document.addEventListener("DOMContentLoaded", function(){ console.log("developed by undefinedindustries.com")
 
+//Server call for event data
     axios.get('https://www.eventbriteapi.com/v3/users/me/owned_events/?token=T4AWNLBLNDQD32SYGHHI&status=live&order_by=start_desc&expand=ticket_classes')
     .then(function(response){
       console.log("response.data:::" , response.data)
 
+//create a variable and set it equal to our first level of relevant data for easy access
       const eventsArr = response.data.events
+      console.log("eventsArr!!!!" , eventsArr)
 
-      // function getEvents(){
-      //   eventsArr = response.data.events
-      //   return eventsArr
-      // }
-      // getEvents()
-    console.log("eventsArr!!!!" , eventsArr)
-
-
+//create an array of headliner names
       let headlinersArr = []
       function getHeadliners(){
         for(let ii = 0; ii < eventsArr.length; ii++){
@@ -44,21 +40,33 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
       //getVenues()
       console.log("getVenues()>>>>" , getVenues())
 
+
+//Write a function that takes the eventsArr, and returns an Array with the sum of riders from all locations as an index an array.
+//iterate through the eventsArr
+//iterate through each pick up location.
+//get the quantity and add it to the eventTotal accumulator variable for that event
+//push the total to the totalRidersArr
+//
+
+
       let totalRidersArr = []
-      let eventTotal = 0
-      let ridersByLocation = {}
       function getRidersTotal(){
         for(let ii = 0; ii < eventsArr.length; ii++){
           let ticketClasses = eventsArr[ii].ticket_classes
-          ridersByLocation[ticketClasses[ii].name.substring(5, 10)] = ticketClasses[ii].quantity_sold
-          eventTotal += ticketClasses[ii].quantity_sold
+          let eventTotal = 0
+          for(let ii = 0; ii < ticketClasses.length; ii++){
+            eventTotal += ticketClasses[ii].quantity_sold
+          }
+          totalRidersArr.push(eventTotal)
         }
-        console.log("ridersByLocation*****" , ridersByLocation)
-        console.log("eventTotal~~~~: " , eventTotal)
-        totalRidersArr.push(eventTotal) //need to run another loop to push each event's eventTotal to this array <<<< :)
+        console.log("totalRidersArr:o:o:o:o: " , totalRidersArr)
       }
       getRidersTotal()
 
+      //create object with key = pick-up location name, value = quantity_sold
+      // ridersByLocation[ticketClasses[ii].name.substring(5, 10)] = ticketClasses[ii].quantity_sold
+      // let ridersByLocation = {}
+      // console.log("ridersByLocation*****" , ridersByLocation)
 
     })
   //function findHeadliner()

@@ -7,8 +7,7 @@
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Hairline|Bungee+Inline|Bungee+Outline|Bungee+Shade" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css?family=Changa:200|Exo+2:600|Yanone+Kaffeesatz:700" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css"/>
 
@@ -17,42 +16,83 @@
   <body>
     <div class="container-fluid btsorange text-white py-3">
       <div class="container">
-        <div class="row-fluid btswhite py-2">
-          <div class="col-2">
-            <img src="images/BTS_LOGO-orange-with-transparent-background-hi-res.png" width="90px">
-          </div>
-          <div class="col-10">Hello, World!
-          </div>
-        </div>
-        <div class="row-fluid border border-white">
-          <div class="data">
-            <div class="date">
+        <div class="col-12">
+          <div class="row-fluid btswhite py-2 d-flex content-align-center">
+            <div class="col-3">
+              <img class="" src="images/BTS_LOGO-orange-with-transparent-background-hi-res.png" width="90px">
+            </div>
+            <div class="col-9 px4 pt-2 ml-4">Fuel Savings Calculator
             </div>
           </div>
-
-          <div class="row-fluid border border-white">
-          <div class="data">
-            <div class="date">mm/dd/yy
+          <div class="row-fluid border border-white d-flex content-align-center py-3">
+            <div class="col-6">
+              <button type="button" class="btn btn-light text-success px-4" >Show All</button>
+            </div>
+            <div class="col-6">
+              <button type="button" class="btn btn-light text-success px-4">Calculate</button>
             </div>
           </div>
-          <div class="row-fluid border border-white">
-          <div class="data">
-            <div class="date">mm/dd/yy
-            </div>
+          <div class="row-fluid">
+            <table class="table table-hover border border-white table-responsive">
+              <thead class="btswhite">
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Headliner</th>
+                  <th scope="col">Venue</th>
+                  <th scope="col">Riders</th>
+                  <th scope="col">Gallons Saved</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td scope="col">mm/dd/yy</td>
+                  <td scope="col">The National</td>
+                  <td scope="col">Red Rocks</td>
+                  <td scope="col">524</td>
+                  <td scope="col">31</td>
+                </tr>
+              </tbody>
+            </table>
+              <div class = "row-fluid btswhite d-flex align-items-end">
+                <div class="col-8 ml-2">
+                  <div class="row">
+                    # of Events
+                  </div>
+                  <div class="row">
+                    # of Riders
+                  </div>
+                  <div class="row" id="saved">
+                    Gallons Saved
+                  </div>
+                  <div class="row">
+                    Compared with carpool
+                  </div>
+                  <div class="row">
+                    Averaging
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="row">
+                    <figure style="width: 40%; padding-bottom: 50%; background-color: #53A451">
+                    </figure>
+                  </div>
+                  <div class="row">
+                    <figcaption>Bus Fuel
+                    </figcaption>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="row">
+                    <figure style="width: 40%; padding-bottom: 50%; background-color: #CB444A">
+                    </figure>
+                  </div>
+                  <div class="row">
+                    <figcaption>Car Fuel
+                    </figcaption>
+                  </div>
+                </div>
           </div>
         </div>
-        <div class="row-fluid border border-white">
-        <div class="data">
-          <div class="date">mm/dd/yy
-          </div>
-        </div>
-        <div class="row-fluid border border-white">
-        <div class="data">
-          <div class="date">mm/dd/yy
-          </div>
-        </div>
-      </div>
-
       </div>
 
 
@@ -65,5 +105,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="main.js"></script>
-</html>
 </html>
