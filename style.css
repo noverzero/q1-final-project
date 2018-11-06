@@ -1,6 +1,7 @@
 .btsorange {
   background-color: #ff420f;
   font-family: 'Changa', sans-serif;
+  font-size: 3vw;
 }
 
 .btswhite {
@@ -16,5 +17,4 @@ table {
 
 #saved {
   color: #53A451;
-
 }

@@ -40,13 +40,12 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
       //getVenues()
       console.log("getVenues()>>>>" , getVenues())
 
-
-//Write a function that takes the eventsArr, and returns an Array with the sum of riders from all locations as an index an array.
-//iterate through the eventsArr
-//iterate through each pick up location.
-//get the quantity and add it to the eventTotal accumulator variable for that event
-//push the total to the totalRidersArr
-//
+      //Write a function that takes the eventsArr, and returns an Array with the sum of riders from all locations as an index an array.
+      //iterate through the eventsArr
+      //iterate through each pick up location.
+      //get the quantity and add it to the eventTotal accumulator variable for that event
+      //push the total to the totalRidersArr
+      //
 
 
       let totalRidersArr = []
@@ -62,6 +61,47 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
         console.log("totalRidersArr:o:o:o:o: " , totalRidersArr)
       }
       getRidersTotal()
+
+//Build the table!
+
+      function createMainRows(){
+        for(let ii = 0; ii < eventsArr.length; ii++){
+          let newRow = document.createElement("tr")
+          newRow.class = "btsorange"
+
+          let dateCell = document.createElement("td")
+          let dateCellContents = document.createTextNode(`${datesArr[ii]}`)
+          dateCell.appendChild(dateCellContents)
+          newRow.appendChild(dateCell)
+
+          let headlinerCell = document.createElement("td")
+          let headlinerCellContents = document.createTextNode(`${headlinersArr[ii]}`)
+          headlinerCell.appendChild(headlinerCellContents)
+          newRow.appendChild(headlinerCell)
+
+          let venueCell = document.createElement("td")
+          let venueCellContents = document.createTextNode(`${venuesArr[ii]}`)
+          venueCell.appendChild(venueCellContents)
+          newRow.appendChild(venueCell)
+
+          let ridersCell = document.createElement("td")
+          let ridersCellContents = document.createTextNode(`${totalRidersArr[ii]}`)
+          ridersCell.appendChild(ridersCellContents)
+          newRow.appendChild(ridersCell)
+
+          let savingsCell = document.createElement("td")
+          let savingsCellContents = document.createTextNode(`need`)
+          savingsCell.appendChild(savingsCellContents)
+          newRow.appendChild(savingsCell)
+
+          let tableBody = document.getElementsByTagName("tbody")[0]
+          console.log(`This is tableBody:: ${tableBody}`)
+          tableBody.appendChild(newRow)
+        }
+      }
+      createMainRows()
+
+
 
       //create object with key = pick-up location name, value = quantity_sold
       // ridersByLocation[ticketClasses[ii].name.substring(5, 10)] = ticketClasses[ii].quantity_sold
