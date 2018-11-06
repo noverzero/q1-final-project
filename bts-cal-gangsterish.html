@@ -1,0 +1,121 @@
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+  // Setup Data Table
+	busCalendarTable = $('table').first().DataTable( {
+      	paging: false,autoWidth:false
+	} );
+
+  var hideOldDates = function() {
+    // Hide old dates
+    var yesterday = new Date();
+    // Show dates for yesterday.
+    yesterday = yesterday.setDate(yesterday.getDate() - 1);
+    $('tr').each(function(ii,obj) {
+      var dateString = $(obj).find('td:first').html();
+      if (dateString) {
+          var showDate = new Date(dateString.split(' ')[dateString.split(' ').length-1]);
+          if (showDate < yesterday) {
+              $(obj).remove();
+          }
+      }
+    });
+  }
+  hideOldDates();
+  $('#calendar-section table').first().on( 'draw.dt', function () {
+    hideOldDates();
+} );
+	if (window.location.search.substr(0,14) == "?table_filter=") {
+     // Searching
+	busCalendarTable.search(decodeURIComponent( window.location.search.substr(14)),true,false);
+      busCalendarTable.draw();
+	setTimeout(function() {
+           	$('html, body').animate({
+     	   scrollTop: $("#calendar-section table").first().offset().top-490
+  	  }, 500);
+
+    },100);
+    }
+
+  bts = {
+	eventType:"",
+	venue:""
+};
+
+bts.updateSearch = function() {
+	var output = ""+bts.eventType;
+	if (output.length > 0) {
+		output = output + " ";
+	}
+	output = output + this.venue;
+	$('[type=search]').val(output).trigger('keyup')
+};
+
+// Venues List
+
+venues = {};
+$('td:nth-child(6)').each(function(ii, obj){
+	var slug = $(obj).html().match(/<a [^>]+>([^<]+)<\/a>/)[1].replace(/\W+/g, '-');
+	venues[slug] = $(obj).html().match(/<a [^>]+>([^<]+)<\/a>/)[1]
+});
+
+
+$('#DataTables_Table_0_filter').prepend('<select id="venues-list" name="venue"><option value="none" selected>Filter by Venue</option>');
+
+for (venue in venues) {
+	$('#venues-list').append("<option value='"+venue+"'>"+venues[venue]+"</option>");
+}
+
+$('#venues-list').change(function(obj) {
+	bts.venue = venues[obj.target.value];
+	if (!bts.venue) { bts.venue = ''; }
+	bts.updateSearch();
+});
+
+// Event Types
+
+$('#DataTables_Table_0_filter').prepend('<select id="event-types" name="types"><option value="" selected>Filter by Event Type</option><option>Concert</option><option>Film</option><option>Comedy</option><option>Craft</option><option>Overnight</option></select>');
+
+$('#event-types').change(function(obj) {
+	bts.eventType = $(obj.target).find(':selected').val();
+	bts.updateSearch();
+});
+
+
+
+});
+
+</script>
+
+
+<style type="text/css">
+
+.tftable {
+  font-size: 2.0vw; color:#ffffff;width:100%;border-width: 1px; border-color: #ff420f; border-collapse: collapse;  width: 100%;
+    border: 0; table-layout:fixed;}
+.tftable th {z-index:1; line-height: 95%; color: #ffffff; background-color: #ff420f;border-width: 1px;padding: 2px;border-style: solid;border-color: #ffffff; text-align:left; text-overflow: string; overflow: hidden;}
+ .tftable th:nth-child(1) {width:17%;}
+  .tftable th:nth-child(2) {width:15%;}
+  .tftable th:nth-child(3) {display:none;}
+  .tftable th:nth-child(4) {display:none;}
+  .tftable th:nth-child(5) {width:20%;}
+.tftable tr {background-color:#ffffff;}
+  {border-collapse: collapse;}
+tr {border-bottom: 1px solid #ff420f;}
+.tftable td {white-space: font-size:1.0 vw; line-height:95%; color: #ff420f; border-width: 1px;padding: 4px;border-style: solid;border-color: #; word-wrap: break-word; text-overflow: string; overflow: hidden;}
+  .tftable td:nth-child(1) {width:17%;}
+  .tftable td:nth-child(2) {width:15%;}
+  .tftable td:nth-child(3) {display:none;}
+  .tftable td:nth-child(4) {display:none;}
+  .tftable td:nth-child(5) {width:20%;}
+  .tftable tr:hover {background-color:#585858 ;}
+  .tftable td:hover {background-color:#FFB870
+;}
+</style>
