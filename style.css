@@ -11,10 +11,22 @@
 }
 
 table {
-  overflow-y: scroll
-  overflow-x: scroll
+    display: block;
+    height: 55vh;
+    overflow-y: scroll;
+    font-weight: bold;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
 }
 
 #saved {
   color: #53A451;
+}
+
+#mainContainer {
+  height:100vh;
 }
