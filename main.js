@@ -188,8 +188,31 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
               }
             }
             sortTable()
+
+          let riderSum = totalRidersArr.reduce((accumulator, currentValue) => accumulator + currentValue)
+
+          let savedSum = fuelSavingsArr.reduce((accumulator, currentValue) => accumulator + currentValue)
+
+
+      function buildSummary(){
+        let events = document.getElementById("events")
+          events.innerText= `# of Events: ${storedEvents.length}`
+
+        let riders = document.getElementById("riders")
+          riders.innerHTML=`# of Riders: ${riderSum}`
+        let saved = document.getElementById("saved")
+          saved.innerText=`Gallons Saved: ${savedSum}`
+        let carpool = document.getElementById("carpool")
+          carpool.innerText="Avg: 3ppl / 30mpg car"
+
+
+
+
+      }
+      buildSummary()
+
     } else {
-      alert("press calculate to load events!")
+      //alert("press calculate to load events!")
     }
   }
   loadStored()
@@ -381,6 +404,29 @@ function axiosDone(response){
     }
   }
   sortTable()
+
+  let riderSum = totalRidersArr.reduce((accumulator, currentValue) => accumulator + currentValue)
+
+  let savedSum = fuelSavingsArr.reduce((accumulator, currentValue) => accumulator + currentValue)
+
+
+function buildSummary(){
+let events = document.getElementById("events")
+  events.innerText= `# of Events: ${eventsArr.length}`
+
+let riders = document.getElementById("riders")
+  riders.innerHTML=`# of Riders: ${riderSum}`
+let saved = document.getElementById("saved")
+  saved.innerText=`Gallons Saved: ${savedSum}`
+let carpool = document.getElementById("carpool")
+  carpool.innerText="Avg: 3ppl / 30mpg car"
+
+
+
+
+}
+buildSummary()
+
 }
 
 //BONEYARD
