@@ -15,7 +15,6 @@
   </head>
   <body>
     <div class="container-fluid btsorange text-white py-3" id="mainContainer">
-        <div class="col-12">
           <div class="row-fluid btswhite py-2 d-flex content-align-center">
             <div class="col-3">
               <img class="" src="images/BTS_LOGO-orange-with-transparent-background-hi-res.png" width="90px">
@@ -32,7 +31,7 @@
             </div>
           </div>
           <div class="row-fluid">
-            <table class="table table-hover border border-white table-responsive table-sm" id="myTable">
+            <table class="table table-hover border border-white table-responsive table-sm fixedHeader" id="myTable">
               <thead class="btswhite ">
                 <tr>
                   <th scope="col">Date</th>
@@ -45,8 +44,8 @@
               <tbody class="btsorange">
               </tbody>
             </table>
-              <div class = "row-fluid btswhite d-flex align-items-end py-1" id="summaryBlock">
-                <div class="col-6 ml-2">
+              <div class = "row-fluid btswhite d-flex align-items-end py-1 mb-4" id="summaryBlock">
+                <div class="col-8 ml-2">
                   <div class="row" id="events">
                     # of Events
                   </div>
@@ -63,9 +62,9 @@
                     Averaging
                   </div>
                 </div>
-                <div class="col-3">
+                <div class="col-2 ">
                   <div class="row">
-                    <figure style="width: 40%; padding-bottom: 50%; background-color: #53A451">
+                    <figure class="mx-auto" id="busBar" style="width: 40%; padding-bottom: 50%; background-color: #53A451">
                     </figure>
                   </div>
                   <div class="row">
@@ -73,9 +72,9 @@
                     </figcaption>
                   </div>
                 </div>
-                <div class="col-3">
+                <div class="col-2 ">
                   <div class="row">
-                    <figure style="width: 40%; padding-bottom: 50%; background-color: #CB444A">
+                    <figure id="carBar" style="width: 40%; padding-bottom: 50%; background-color: #CB444A">
                     </figure>
                   </div>
                   <div class="row">
@@ -85,7 +84,6 @@
                 </div>
           </div>
         </div>
-      </div>
 
 
 
