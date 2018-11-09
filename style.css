@@ -6,75 +6,28 @@
 
 .btswhite {
   background-color: white;
+  /* font-family: 'Changa', sans-serif; */
   font-family: 'Exo 2', sans-serif;
-  color: #ff420f
+  /* font-family: 'Bungee Inline', cursive; */
+  color: #ff420f;
 }
 
-table {
+.btsTitle {
+  font-family: 'Changa', sans-serif;
+  font-weight: 900;
+  font-size: 150%;
+  /* font-family: 'Exo 2', sans-serif; */
+  /* font-family: 'Bungee Inline', cursive; */
+  color: #ff420f;
+}
+
+.table {
     display: block;
-    height: 55vh;
+    height: 57vh;
     overflow-y: scroll;
     font-weight: bold;
+    margin-bottom: 0rem;
 }
-
-
-
-/* @table_width: 750px;
-@table_body_height: 300px;
-@column_one_width: 200px;
-@column_two_width: 200px;
-@column_three_width: 350px;
-.fixedHeader {
-  width: @table_width;
-  table-layout: fixed;
-  border-collapse: collapse;
-
-  th { text-decoration: underline; }
-  th, td {
-    padding: 5px;
-    text-align: left;
-  }
-
-  td:nth-child(1), th:nth-child(1) { min-width: @column_one_width; }
-  td:nth-child(2), th:nth-child(2) { min-width: @column_two_width; }
-  td:nth-child(3), th:nth-child(3) { width: @column_three_width; }
-
-  thead {
-    background-color: @header_background_color;
-    color: @header_text_color;
-    tr {
-      display: block;
-      position: relative;
-    }
-  }
-  tbody {
-    display: block;
-    overflow: auto;
-    width: 100%;
-    height: @table_body_height;
-    tr:nth-child(even) {
-      background-color: @alternate_row_background_color;
-    }
-  }
-} */
-/* @table_width: 750px;
-.fixedHeader {
-  border-collapse: collapse;
-  width: @table_width;
-  table-layout: fixed;
-} */
-
-
-  /* tr {
-     display: block;
-    position: relative;
-  } */
-
-
-/* tbody {
-  display: block;
-  overflow: auto;
-} */
 
 #saved {
   color: #53A451;
@@ -82,4 +35,40 @@ table {
 
 #mainContainer {
   height:110vh;
+  width: 101vw;
+}
+
+#vs{
+  font-family: 'Bungee Shade', cursive;
+  font-size: 200%;
+  padding-top: 30px;
+}
+
+.vs {
+  font-family: 'Bungee Inline', cursive;
+  /* font-family: 'Bungee Outline', cursive; */
+  font-size: 120%;
+  padding-top: 10px;
+}
+
+#carMpg {
+  font-family: 'Bungee Inline', cursive;
+  /* font-family: 'Bungee Outline', cursive; */
+  font-size: 110%;
+  color: #ff420f;
+  width: 70%
+}
+
+#busMpg {
+  font-family: 'Bungee Inline', cursive;
+  /* font-family: 'Bungee Outline', cursive; */
+  font-size: 110%;
+  color: #ff420f;
+  width: 70%
+}
+
+#lecture {
+  font-family: 'Bungee Inline', cursive;
+  font-size: 95%;
+  text-align: center;
 }

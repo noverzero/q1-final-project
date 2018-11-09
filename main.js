@@ -1,15 +1,42 @@
 document.addEventListener("DOMContentLoaded", function(){ console.log("developed by undefinedindustries.com")
 
+  let configure = document.getElementById('configure')
+  configure.addEventListener("click" , function(){
+    console.log("I hear a click on CONFIGURE!")
+    function buildForm(){
+//hide table
+      let table = document.getElementById("bodyRow")
+        table.style.display = "none"
+
+//hide summaryBlock
+
+      let summaryBlock = document.getElementById("summaryBlock")
+      summaryBlock.style.visibility = "hidden"
+
+    }
+    buildForm()
+
+
+  })
+
+
+
   //create 'calculate' button event listener and calculate function.
   let calculate = document.getElementById('calculate')
   calculate.addEventListener("click" , function(){
-    console.log("I hear a click!")
+    console.log("I hear a click on CALCULATE!")
 
     //Server call for event data
-    axios.get('https://www.eventbriteapi.com/v3/users/me/owned_events/?token=T4AWNLBLNDQD32SYGHHI&order_by=start_desc&expand=ticket_classes')
+
+
+
+  axios.get('https://www.eventbriteapi.com/v3/users/me/owned_events/?token=T4AWNLBLNDQD32SYGHHI&order_by=start_desc&expand=ticket_classes')
+
     .then(axiosDone)
 
     function axiosDone(response){
+      console.log("response:::" , response)
+
       console.log("response.data:::" , response.data)
 
     //create a variable and set it equal to our first level of relevant data for easy access
@@ -20,7 +47,9 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
 
       loadStored()
     }
-  })
+
+
+})
 
   function loadStored(){
   //retreive previous stored eventsArr from local storage
@@ -127,6 +156,8 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
   //Build the table!
 
         function createMainRows(){
+          let table = document.getElementById("bodyRow")
+          table.style.display = "block"
           let tableBody = document.getElementsByTagName("tbody")[0]
           while (tableBody.firstChild) {
             tableBody.removeChild(tableBody.firstChild)
@@ -227,12 +258,15 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
         console.log(`carPercent` , carPercent )
 
           function buildVisualizer(){
+            document.getElementById("summaryBlock")
+            summaryBlock.style.visibility = "visible"
             let busBar = document.getElementById("busBar")
             busBar.style.paddingBottom = `${busPercent}%`
               console.log("busBar>>>>:", busPercent)
             let carBar = document.getElementById("carBar")
             carBar.style.paddingBottom = `${carPercent}%`
               console.log("carBar>>>>:", carPercent)
+
           }
           buildVisualizer()
 
@@ -242,7 +276,7 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
 
       function axiosDone(response){
         console.log("response.data:::" , response.data)
-
+        console.log("i caught a fish")
       //create a variable and set it equal to our first level of relevant data for easy access
         const eventsArr = response.data.events
         console.log("eventsArr!!!!" , eventsArr)
@@ -262,24 +296,14 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
 
 //BONEYARD
 
-//fuel per bus = roundtrip miles / bus mpg
 
-//bus fuel consumed per event = fuel per bus * number of buses used
-//
-//calculate parallel universe car fuel consumed
-//number of cars used = number of riders / average car capacity
-//fuel per car = roundtrip miles / car MPG
-//car fuel consumed per event = fuel per car * number of cars used
-//
-//calculate fuel savings for each event
-//fuel not consumed = parallel universe fuel consumed per event - bus fuel consumed per event
-//
-//total fuel saved = sum of fuel not consumed throughout all events in question.
+// const fiftyFiveAxiosCalls =()=>{
+//   for(let i = 0; i<1; i++){axios.get(     `https://www.eventbriteapi.com/v3/users/me/owned_events/?continuation=eyJwYWdlIjogM30&token=T4AWNLBLNDQD32SYGHHI&order_by=start_desc&expand=ticket_classes`)
+//fiftyFiveAxiosCalls()
+
 
 //only display date range (Last 50, 2018, Live, top 10, userInput)
 //only display headliner === userInput
-
-//function findHeadliner()
 
 // axios.get('https://www.eventbriteapi.com/v3/users/me/owned_events/?token=T4AWNLBLNDQD32SYGHHI&status=live&order_by=start_desc&expand=ticket_classes')
 // .then(function(response){
