@@ -16,6 +16,13 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
       let formContainer = document.getElementById("formContainer")
       formContainer.style.display = "block"
 
+//add eventListener to otherCalculate
+      let otherCalculate= document.getElementById("otherCalculate")
+      otherCalculate.addEventListener("click" , function(){
+        console.log("I hear a click on otherCalculate!")
+        loadStored()
+      })
+
     }
     buildForm()
 
@@ -99,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
             //push the total to the totalRidersArr
             //
 
+//Get total Riders
       let totalRidersArr = []
       function getRidersTotal(){
         for(let ii = 0; ii < eventsArr.length; ii++){
@@ -131,10 +139,14 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
         cap: 48,
       }
       //create object of MPG and average capacity for car (this will be editable by user)
+let carValMpg = document.getElementById("carMpg").value
+let carValCap = document.getElementById("carCap").value
+
       let car={
-        mpg: 30,
-        cap: 3,
+        mpg: carValMpg,
+        cap: carValCap,
       }
+      console.log("here's car this time >>", car)
 
       let carFuelArr = []
       let busFuelArr = []

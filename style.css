@@ -67,6 +67,22 @@
   width: 70%
 }
 
+#carCap {
+  font-family: 'Bungee Inline', cursive;
+  /* font-family: 'Bungee Outline', cursive; */
+  font-size: 110%;
+  color: #ff420f;
+  width: 70%
+}
+
+#busCap {
+  font-family: 'Bungee Inline', cursive;
+  /* font-family: 'Bungee Outline', cursive; */
+  font-size: 110%;
+  color: #ff420f;
+  width: 70%
+}
+
 #lecture {
   font-family: 'Bungee Inline', cursive;
   font-size: 95%;
