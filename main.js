@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
       let summaryBlock = document.getElementById("summaryBlock")
       summaryBlock.style.visibility = "hidden"
 
+      let formContainer = document.getElementById("formContainer")
+      formContainer.style.display = "block"
+
     }
     buildForm()
 
@@ -152,6 +155,12 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
       }
       getFuelSavings()
 
+//hide the formContainer
+function hideFormContainer(){
+let formContainer = document.getElementById("formContainer")
+formContainer.style.display = "none"
+}
+hideFormContainer()
 
   //Build the table!
 
