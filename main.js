@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
 
 
 
-  axios.get(`https://www.eventbriteapi.com/v3/users/me/owned_events/?token=${token}order_by=start_desc&expand=ticket_classes`)
+  axios.get(`https://www.eventbriteapi.com/v3/users/me/owned_events/?token=${token}&order_by=start_desc&expand=ticket_classes`)
 
     .then(axiosDone)
 
@@ -319,7 +319,7 @@ getSortBy
           buildVisualizer()
 
     } else {
-      axios.get(`https://www.eventbriteapi.com/v3/users/me/owned_events/?token=${token}order_by=start_desc&expand=ticket_classes`)
+      axios.get(`https://www.eventbriteapi.com/v3/users/me/owned_events/?token=${token}&order_by=start_desc&expand=ticket_classes`)
       .then(axiosDone)
 
       function axiosDone(response){
