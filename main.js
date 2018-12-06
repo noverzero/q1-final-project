@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function(){ console.log("developed
 
 
 
-  axios.get('https://www.eventbriteapi.com/v3/users/me/owned_events/?token=T4AWNLBLNDQD32SYGHHI&order_by=start_desc&expand=ticket_classes')
+  axios.get(`https://www.eventbriteapi.com/v3/users/me/owned_events/?token=${token}order_by=start_desc&expand=ticket_classes`)
 
     .then(axiosDone)
 
@@ -218,6 +218,33 @@ hideFormContainer()
         }
         createMainRows()
 
+function getSortBy(){
+let tableHeaderRow = document.getElementById("tableHeaderRow")
+console.log("tableHead, yo~~~~!" , tableHeaderRow)
+tableHeaderRow.addEventListener("click" , function(){
+
+let columnName = event.target.innerText
+console.log("columnName!!}}}" , columnName, "...oh and listner works!")
+let sortBy = 0
+if(columnName === "Date"){
+  sortBy = 0
+} else if(columnName === "Headliner") {
+  sortBy = 1
+} else if(columnName === "Venue") {
+  sortBy = 2
+} else if(columnName === "Riders") {
+  sortBy = 3
+} else if(columnName === "Gallons Saved"){
+  sortBy = 4
+} else {sortBy = 0}
+return sortBy
+}
+getSortBy
+
+
+})
+
+
         function sortTable() {
           let table, rows, switching, i, x, y, shouldSwitch;
           table = document.getElementById("myTable");
@@ -292,7 +319,7 @@ hideFormContainer()
           buildVisualizer()
 
     } else {
-      axios.get('https://www.eventbriteapi.com/v3/users/me/owned_events/?token=T4AWNLBLNDQD32SYGHHI&order_by=start_desc&expand=ticket_classes')
+      axios.get(`https://www.eventbriteapi.com/v3/users/me/owned_events/?token=${token}order_by=start_desc&expand=ticket_classes`)
       .then(axiosDone)
 
       function axiosDone(response){
@@ -313,31 +340,3 @@ hideFormContainer()
 
 
 })
-
-
-//BONEYARD
-
-
-// const fiftyFiveAxiosCalls =()=>{
-//   for(let i = 0; i<1; i++){axios.get(     `https://www.eventbriteapi.com/v3/users/me/owned_events/?continuation=eyJwYWdlIjogM30&token=T4AWNLBLNDQD32SYGHHI&order_by=start_desc&expand=ticket_classes`)
-//fiftyFiveAxiosCalls()
-
-
-//only display date range (Last 50, 2018, Live, top 10, userInput)
-//only display headliner === userInput
-
-// axios.get('https://www.eventbriteapi.com/v3/users/me/owned_events/?token=T4AWNLBLNDQD32SYGHHI&status=live&order_by=start_desc&expand=ticket_classes')
-// .then(function(response){
-//   console.log("this is response.data::" , response.data)
-//   for(let ii=0; ii < response.data.events.length; ii++){
-//     let myEvent = response.data.events[ii]
-//           console.log("this is myEvent.name.text::" , myEvent.name.text)
-//           let headliner = myEvent.name.text.substring((0), myEvent.name.text.indexOf("*")-1)
-//           console.log("this is headliner:::" , headliner)
-//           // var res = str.substring(str.indexOf("e"), str.indexOf("o"))
-//           for(let ii=0; ii < myEvent.ticket_classes.length; ii++){
-//                 let ticketClass = myEvent.ticket_classes[ii]
-//                 console.log("this is ticketClass.name::" , ticketClass.name, "this is quantity sold::" , ticketClass.quantity_sold)
-//               }
-//   }
-// })
